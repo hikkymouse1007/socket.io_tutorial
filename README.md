@@ -15,4 +15,6 @@ and open localhost:3000
 - http://marctech.hatenadiary.com/entry/2018/01/26/202937
 
 負荷テストについて
+Artillery
 https://artillery.io/docs/guides/guides/socketio-reference.html
+https://artillery.io/blog/load-testing-socketio-with-artillery
