@@ -18,3 +18,5 @@ and open localhost:3000
 Artillery
 - https://artillery.io/docs/guides/guides/socketio-reference.html
 - https://artillery.io/blog/load-testing-socketio-with-artillery
+- https://itnext.io/websocket-load-testing-with-artillery-io-b8b7ecbcd7ed
+- https://github.com/hikkymouse1007/socketio-load-test-artillery-example
