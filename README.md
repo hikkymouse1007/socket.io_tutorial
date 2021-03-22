@@ -21,3 +21,4 @@ Artillery
 - https://itnext.io/websocket-load-testing-with-artillery-io-b8b7ecbcd7ed
 - https://github.com/hikkymouse1007/socketio-load-test-artillery-example
 - https://socket.io/demos/chat/
+- https://github.com/hassy/socketio-load-test-artillery-example
