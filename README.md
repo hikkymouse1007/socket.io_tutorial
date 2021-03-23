@@ -10,6 +10,20 @@ node index.js
 
 and open localhost:3000
 
+## AWSのEC2へのアップロード
+インスタンスを立てて、zipしたルートディレクトリのファイルをscpで
+アップロードする。
+SGでTCPポートは3000を開けておくこと。
+
+sshしたら、以下のコマンドを実行する・
+```
+npm install
+node index.js
+```
+3000でのリッスンを確認したら、
+http://${AWS_IP}:3000へアクセス
+
+
 参考:
 - http://marctech.hatenadiary.com/entry/2018/01/19/191209
 - http://marctech.hatenadiary.com/entry/2018/01/26/202937
@@ -36,3 +50,34 @@ socket.ioのバージョンは2系を使うこと。
 ```
 
 socket.ioの3系はartilleryのv3をインストールする必要がある
+
+Artilleryによるテスト
+```
+## first_test.yaml
+config:
+  target: "http://${AWS:IP}:3000"
+  phases:
+    - duration: 10
+      arrivalRate: 10
+
+scenarios:
+  - name: "simple posting"
+    weight: 75
+    engine: "socketio"
+    flow:
+      - get:
+          url: "/"
+      - emit:
+          channel: "chat message" # socket.onに定義したアクション名を実行
+          data: "yoooooohhhhh!!"
+      - think: 60
+
+
+## index.js
+io.on('connection', (socket) => {
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
+    });
+  });
+
+```
