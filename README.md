@@ -22,3 +22,17 @@ Artillery
 - https://github.com/hikkymouse1007/socketio-load-test-artillery-example
 - https://socket.io/demos/chat/
 - https://github.com/hassy/socketio-load-test-artillery-example
+
+
+Artilleryでテストするには、
+socket.ioのバージョンは2系を使うこと。
+
+```
+## package.json
+"dependencies": {
+    "express": "~4.17.1",
+    "socket.io": "^2.3.0"
+  },
+```
+
+socket.ioの3系はartilleryのv3をインストールする必要がある
