@@ -1,17 +1,19 @@
 config:
-  target: "http://54.248.62.22:3000"
+  target: "http://localhost:3000/"
   phases:
-    - duration: 10
+    - duration: 60
       arrivalRate: 10
 
 scenarios:
-  - name: "simple posting"
-    weight: 75
+  - name: "A user"
     engine: "socketio"
     flow:
-      - get:
-          url: "/"
-      - emit:
-          channel: "chat message" 
-          data: "yoooooohhhhh!!"
-      - think: 60
+    - get:
+        url: "/"
+    - emit:
+        channel: "add user"
+        data: "hogehoge1"
+    - emit:
+          channel: "new message"
+          data: "hellos"
+    - think: 60

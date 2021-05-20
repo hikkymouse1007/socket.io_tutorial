@@ -1,0 +1,17 @@
+config:
+  target: "http://localhost:3000"
+  phases:
+    - duration: 10
+      arrivalRate: 10
+
+scenarios:
+  - name: "simple posting"
+    weight: 75
+    engine: "socketio"
+    flow:
+      - get:
+          url: "/"
+      - emit:
+          channel: "chat message" # socket.onに定義したアクション名を実行
+          data: "yoooooohhhhh!!"
+      - think: 60

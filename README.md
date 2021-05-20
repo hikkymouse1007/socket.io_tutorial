@@ -81,3 +81,6 @@ io.on('connection', (socket) => {
   });
 
 ```
+
+### Trouble Shooting
+https://socket.io/docs/v3/troubleshooting-connection-issues/

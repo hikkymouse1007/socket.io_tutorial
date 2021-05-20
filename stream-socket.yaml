@@ -1,0 +1,18 @@
+config:
+  target: "https://www-stg.stream-ticket.com/socket.io/EIO=3&transport=websocket"
+  socketio:
+    transports: ["websocket"]
+  phases:
+    - duration: 30
+      arrivalRate: 1
+
+scenarios:
+  - name: "test posting"
+    # engine: "socketio"
+    flow:
+      - get:
+          url: "/"
+      # - emit:
+      #     channel: "chat"
+      #     data: "yoooooohhhhh!!"
+      # - think: 2
