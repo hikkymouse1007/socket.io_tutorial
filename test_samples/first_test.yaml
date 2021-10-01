@@ -1,0 +1,19 @@
+config:
+  target: "http://localhost:3000/"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+
+scenarios:
+  - name: "A user"
+    engine: "socketio"
+    flow:
+    - get:
+        url: "/"
+    - emit:
+        channel: "add user"
+        data: "hogehoge1"
+    - emit:
+          channel: "new message"
+          data: "hellos"
+    - think: 60

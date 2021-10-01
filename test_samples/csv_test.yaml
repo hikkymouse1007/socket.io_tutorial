@@ -1,0 +1,30 @@
+
+
+config:
+  target: "http://localhost:3000/"
+  phases:
+    - duration: 10
+      arrivalRate: 2
+  payload:
+    # 対処のファイルと読み込むフィールドの定義
+    path: "user_message.csv"
+    fields:
+      - "user"
+      - "message"
+    # csvの頭から順番に実行したい場合はシーケンシャルを指定する
+    order: sequence
+    # csvの1行目を無視する
+    skipHeader: true
+
+scenarios:
+  - name: "A user"
+    engine: "socketio"
+    flow:
+    - get:
+        url: "/"
+    - emit:
+        channel: "add user"
+        data: "{{user}}"
+    - emit:
+          channel: "new message"
+          data: "{{message}}"
