@@ -11,9 +11,12 @@ io.on('connection', (socket) => {
   socket.on('disconnect', () => {
     console.log('user disconnected');
   });
-  socket.on('chat message', (msg) => {
-    console.log('message: ' + msg);
-    io.emit('chat message', msg);
+  socket.on('chat message', (name, message, callback) => {
+    console.log(`name: ${name} message: ${message}`);
+    io.emit('chat message', (name, message));
+    callback({
+      status: "okkkkk"
+    });
   });
 });
 

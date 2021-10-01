@@ -18,7 +18,10 @@
   <body>
     <ul id="messages"></ul>
     <form id="form" action="">
-      <input id="input" autocomplete="off" /><button>Send</button>
+      name:
+      <input id="input1" autocomplete="off" />
+      message:
+      <input id="input2" autocomplete="off" /><button>Send</button>
     </form>
     <script src="/socket.io/socket.io.js"></script>
     <script>
@@ -26,18 +29,22 @@
 
         var messages = document.getElementById('messages');
         var form = document.getElementById('form');
-        var input = document.getElementById('input');
+        var input1 = document.getElementById('input1');
+        var input2 = document.getElementById('input2');
 
         form.addEventListener('submit', function(e) {
           e.preventDefault();
-          if (input.value) {
-            socket.emit('chat message', input.value);
-            input.value = '';
+          if (input1.value || input2.value) {
+            socket.emit('chat message', input1.value, input2.value, (response) => {
+              console.log(response.status);
+            });
+            input1.value = '';
+            input2.value = '';
           }
         });
-        socket.on('chat message', function(msg) {
+        socket.on('chat message', function(name, message) {
           var item = document.createElement('li');
-          item.textContent = msg;
+          item.textContent = `name:${name} message:${message}`;
           messages.appendChild(item);
           window.scrollTo(0, document.body.scrollHeight);
         });
