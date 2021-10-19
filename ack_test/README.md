@@ -95,3 +95,12 @@ https://zenn.dev/dove/scraps/8112539765d869
 https://github.com/artilleryio/artillery/issues/992
 
 https://socket.io/docs/v4/load-testing/
+
+## ackのテスト
+https://socket.io/docs/v4/client-api/
+
+## Artilleryはひとまずグローバルにインストール済み
+
+```
+npm install -g artillery-engine-socketio-v3
+```

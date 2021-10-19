@@ -5,15 +5,13 @@ config:
   phases:
     - duration: 4
       arrivalRate: 2
+  engines:
+    socketio-v3: {}
 
 scenarios:
   - name: "チャットテスト"
     engine: socketio-v3
     flow:
       - emit:
-          channel: "chat"
-          data: 
-            {
-              name: "Kevin",
-              message: "Hello"
-            }
+          channel: "chat message"
+          data: {'name':"hello", 'message': "dear"}
