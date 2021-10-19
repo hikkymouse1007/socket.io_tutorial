@@ -104,3 +104,13 @@ https://socket.io/docs/v4/client-api/
 ```
 npm install -g artillery-engine-socketio-v3
 ```
+
+## ack_testディレクトリでサンプルテスト実行(動作確認済み)
+
+```
+cd ack_test
+
+node index.js
+artillery run  ack_test.yaml
+
+```
