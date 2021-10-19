@@ -12,9 +12,13 @@ io.on('connection', (socket) => {
     console.log('user disconnected');
   });
 
-  socket.on('chat message', (msg) => {
-    console.log('name: ' + msg.name + ' message:' + msg.message);
-    io.emit('chat message', msg);
+  socket.on('chat message', (data, dummy = null, callback) => {
+    console.log('name: ' + data.name + ' message:' + data.message);
+    callback({
+      status: "ok"
+    });
+
+    io.emit('chat message', data);
   });
 });
 

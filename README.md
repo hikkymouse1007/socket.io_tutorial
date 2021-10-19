@@ -98,6 +98,7 @@ https://socket.io/docs/v4/load-testing/
 
 ## ackのテスト
 https://socket.io/docs/v4/client-api/
+https://socket.io/docs/v3/emitting-events/
 
 ## Artilleryはひとまずグローバルにインストール済み
 
