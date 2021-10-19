@@ -35,16 +35,16 @@
         form.addEventListener('submit', function(e) {
           e.preventDefault();
           if (input1.value || input2.value) {
-            socket.emit('chat message', input1.value, input2.value, (response) => {
+            socket.emit('chat message', {name :input1.value, message: input2.value}, (response) => {
               console.log(response.status);
             });
             input1.value = '';
             input2.value = '';
           }
         });
-        socket.on('chat message', function(name, message) {
+        socket.on('chat message', function(data) {
           var item = document.createElement('li');
-          item.textContent = `name:${name} message:${message}`;
+          item.textContent = `name:${data.name} message:${data.message}`;
           messages.appendChild(item);
           window.scrollTo(0, document.body.scrollHeight);
         });

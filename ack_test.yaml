@@ -1,0 +1,19 @@
+config:
+  target: "http://localhost:3000"
+  socketio:
+    transports: ["websocket"]
+  phases:
+    - duration: 4
+      arrivalRate: 2
+
+scenarios:
+  - name: "チャットテスト"
+    engine: socketio-v3
+    flow:
+      - emit:
+          channel: "chat"
+          data: 
+            {
+              name: "Kevin",
+              message: "Hello"
+            }

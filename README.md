@@ -28,6 +28,7 @@ http://${AWS_IP}:3000へアクセス
 - http://marctech.hatenadiary.com/entry/2018/01/19/191209
 - http://marctech.hatenadiary.com/entry/2018/01/26/202937
 
+
 ### 負荷テストについて
 Artillery
 - https://artillery.io/docs/guides/guides/socketio-reference.html
@@ -84,3 +85,13 @@ io.on('connection', (socket) => {
 
 ### Trouble Shooting
 https://socket.io/docs/v3/troubleshooting-connection-issues/
+
+## multiple values
+https://pretagteam.com/question/socketemit-brings-multiple-values
+
+## version 3以降の仕様について
+https://zenn.dev/dove/scraps/8112539765d869
+
+https://github.com/artilleryio/artillery/issues/992
+
+https://socket.io/docs/v4/load-testing/
