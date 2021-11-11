@@ -12,12 +12,13 @@ io.on('connection', (socket) => {
     console.log('user disconnected');
   });
 
-  socket.on('chat message', (data, dummy = null, callback) => {
+  socket.on('chat message', (data, dummy = null, ack) => {
     console.log('name: ' + data.name + ' message:' + data.message);
-    callback({
-      status: "ok"
-    });
-
+    if (typeof ack === 'function') {
+      ack({
+        status: "ok"
+      })
+    };
     io.emit('chat message', data);
   });
 });
